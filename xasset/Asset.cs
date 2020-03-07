@@ -29,6 +29,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+#if UNITY_2018_3_OR_NEWER
+using UnityEngine.Networking;
+#endif
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
@@ -345,6 +348,7 @@ namespace xasset
     public class SceneAssetAsync : SceneAsset
     {
         private AsyncOperation _request;
+        public AsyncOperation AsyncOperation { get { return _request; } }
 
         public SceneAssetAsync(string path, bool addictive)
             : base(path, addictive)
