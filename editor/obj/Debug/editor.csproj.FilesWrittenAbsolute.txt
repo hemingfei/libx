@@ -1,0 +1,4 @@
+/Users/fjy/Projects/libx/bin/Debug/libx-editor.dll.mdb
+/Users/fjy/Projects/libx/bin/Debug/libx-editor.dll
+/Users/fjy/Projects/libx/editor/obj/Debug/libx-editor.dll
+/Users/fjy/Projects/libx/editor/obj/Debug/libx-editor.dll.mdb

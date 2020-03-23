@@ -1,0 +1,5 @@
+/Users/fjy/Projects/libx/xasset/obj/Debug/runtime.csproj.CopyComplete
+/Users/fjy/Projects/libx/xasset/obj/Debug/libx-runtime.dll
+/Users/fjy/Projects/libx/bin/Debug/libx-runtime.dll
+/Users/fjy/Projects/libx/runtime/obj/Debug/runtime.csproj.CopyComplete
+/Users/fjy/Projects/libx/runtime/obj/Debug/libx-runtime.dll

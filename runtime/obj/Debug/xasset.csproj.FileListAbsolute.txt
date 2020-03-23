@@ -1,0 +1,7 @@
+F:/r-c/trunk/libx/bin/Debug/xasset.dll
+F:/r-c/trunk/libx/bin/Debug/xasset.pdb
+F:/r-c/trunk/libx/xasset/obj/Debug/xasset.dll
+F:/r-c/trunk/libx/xasset/obj/Debug/xasset.pdb
+/Users/fjy/Projects/libx/bin/Debug/libx-runtime.dll
+/Users/fjy/Projects/libx/xasset/obj/Debug/xasset.csproj.CopyComplete
+/Users/fjy/Projects/libx/xasset/obj/Debug/libx-runtime.dll

@@ -1,5 +1,5 @@
 xbuild
-cp bin/Debug/xasset.dll ../Assets/Plugins/XAsset
-cp bin/Debug/xasset.dll.mdb ../Assets/Plugins/XAsset
-cp bin/Debug/xasset.editor.dll ../Assets/Plugins/XAsset/Editor
-cp bin/Debug/xasset.editor.dll.mdb ../Assets/Plugins/XAsset/Editor
+cp bin/Debug/libx-runtime.dll ../Assets/Plugins
+cp bin/Debug/libx-runtime.dll.mdb ../Assets/Plugins
+cp bin/Debug/libx-editor.dll ../Assets/Plugins/Editor
+cp bin/Debug/libx-editor.dll.mdb ../Assets/Plugins/Editor
