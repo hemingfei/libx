@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xasset", "xasset\xasset.csproj", "{E01CA643-7061-4A77-A18A-BEC071F76F05}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "runtime", "runtime\runtime.csproj", "{E01CA643-7061-4A77-A18A-BEC071F76F05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xasset.editor", "xasset.editor\xasset.editor.csproj", "{E8013C09-D906-4F57-9D25-7B629A7E99A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "editor", "editor\editor.csproj", "{E8013C09-D906-4F57-9D25-7B629A7E99A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

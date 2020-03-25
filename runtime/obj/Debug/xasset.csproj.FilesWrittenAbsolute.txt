@@ -1,0 +1,4 @@
+/Users/fjy/Projects/xasset/libx/bin/Debug/xasset.dll.mdb
+/Users/fjy/Projects/xasset/libx/bin/Debug/xasset.dll
+/Users/fjy/Projects/xasset/libx/xasset/obj/Debug/xasset.dll
+/Users/fjy/Projects/xasset/libx/xasset/obj/Debug/xasset.dll.mdb

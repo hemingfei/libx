@@ -1,0 +1,4 @@
+/Users/fjy/Projects/libx/bin/Debug/libx-runtime.dll.mdb
+/Users/fjy/Projects/libx/bin/Debug/libx-runtime.dll
+/Users/fjy/Projects/libx/runtime/obj/Debug/libx-runtime.dll
+/Users/fjy/Projects/libx/runtime/obj/Debug/libx-runtime.dll.mdb
