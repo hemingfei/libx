@@ -37,89 +37,80 @@ namespace libx
 
 		private const char splitKey = '=';
 
-		public static Dictionary<string, string> data = new Dictionary<string, string>();
+		public static Dictionary<string, string> data = new Dictionary<string, string> ();
 
-		public static void Load()
+		public static void Load ()
 		{
 			var path = Assets.GetRelativeUpdatePath(appVersionFile);
-			if (File.Exists(path))
-			{
-				var ver = new System.Version(File.ReadAllText(path));
-				if (ver < new System.Version(Application.version))
-				{
-					Clear();
-				}
-			}
-
-			path = Assets.GetRelativeUpdatePath(versionFile);
-			if (File.Exists(path))
-			{
-				using (var s = new StreamReader(path))
-				{
+			if (File.Exists (path)) {
+				var ver = new System.Version (File.ReadAllText (path));
+				if (ver < new System.Version (Application.version)) {
+					Clear ();
+				} 
+			} 
+       
+			path = Assets.GetRelativeUpdatePath(versionFile); 
+			if (File.Exists (path)) { 
+				using (var s = new StreamReader (path)) {
 					string line;
-					while ((line = s.ReadLine()) != null)
-					{
+					while ((line = s.ReadLine ()) != null) {
 						if (line == string.Empty)
 							continue;
-						var fields = line.Split(splitKey);
+						var fields = line.Split (splitKey);
 						if (fields.Length > 1)
-							data.Add(fields[0], fields[1]);
+							data.Add (fields [0], fields [1]);
 					}
 				}
 			}
 		}
 
-		public static void Clear()
+		public static void Clear ()
 		{
-			data.Clear();
-			var dir = Path.GetDirectoryName(Assets.updatePath);
-			if (Directory.Exists(dir))
-			{
-				Directory.Delete(dir, true);
+			data.Clear ();
+			var dir = Path.GetDirectoryName (Assets.updatePath);
+			if (Directory.Exists (dir)) {
+				Directory.Delete (dir, true);
 			}
 		}
 
-		public static void Set(string key, string version)
+		public static void Set (string key, string version)
 		{
-			data[key] = version;
+			data [key] = version;
 		}
 
-		public static string Get(string key)
+		public static string Get (string key)
 		{
 			string version;
-			data.TryGetValue(key, out version);
+			data.TryGetValue (key, out version);
 			return version;
 		}
 
-		public static void Save()
+		public static void Save ()
 		{
-			var dir = Path.GetDirectoryName(Assets.updatePath);
-			if (!Directory.Exists(dir))
-			{
+			var dir = Path.GetDirectoryName (Assets.updatePath);
+			if (! Directory.Exists (dir)) {
 				Directory.CreateDirectory(dir);
 			}
 
 			var path = Assets.updatePath + versionFile;
-			if (File.Exists(path))
-				File.Delete(path);
+			if (File.Exists (path))
+				File.Delete (path);
 
-			if (data.Count > 0)
-			{
-				using (var s = new StreamWriter(path))
-				{
+			if (data.Count > 0) {
+				using (var s = new StreamWriter (path)) {
 					foreach (var item in data)
-						s.WriteLine(item.Key + splitKey + item.Value);
-					s.Flush();
-					s.Close();
-				}
-			}
+						s.WriteLine (item.Key + splitKey + item.Value);
+					s.Flush ();
+					s.Close ();
+				} 
+			} 
 
-			path = Assets.GetRelativeUpdatePath(appVersionFile);
+			path = Assets.GetRelativeUpdatePath(appVersionFile); 
 
-			if (File.Exists(path))
-				File.Delete(path);
-
-			File.WriteAllText(path, Application.version);
+			if (File.Exists (path))
+				File.Delete (path);
+			
+			File.WriteAllText (path, Application.version); 
 		}
 	}
 }
