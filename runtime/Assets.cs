@@ -40,11 +40,12 @@ namespace libx
 
     public delegate string GetPlatformDelegate();
 
-    public class Assets : MonoBehaviour
+    [Hegametech.Framework.MonoSingletonAttribute("[HE GAME TECH]/Assets")]
+    public class Assets : Hegametech.Framework.TMonoSingleton<Assets>
     {
         public static readonly string AssetBundles = "AssetBundles";
 
-        public static readonly string AssetsManifestAsset = "Assets/Manifest.asset";
+        public static readonly string AssetsManifestAsset = "Assets/Res/Manifest.asset";
 
         public static OverrideDataPathDelegate OverrideBaseDownloadingUrl;
 
@@ -52,7 +53,7 @@ namespace libx
 
         public static LoadDelegate loadDelegate = null;
 
-        public static GetPlatformDelegate getPlatformDelegate = null; 
+        public static GetPlatformDelegate getPlatformDelegate = null;
 
         [Conditional("LOG_ENABLE")]
         private static void Log(string s)
@@ -69,8 +70,7 @@ namespace libx
             var instance = FindObjectOfType<Assets>();
             if (instance == null)
             {
-                instance = new GameObject("Assets").AddComponent<Assets>();
-                DontDestroyOnLoad(instance.gameObject);
+                instance = Instance;
             }
 
             Log(string.Format("Initialize->assetBundleMode {0}", Assets.assetBundleMode));
@@ -103,7 +103,7 @@ namespace libx
             request.url = "AssetsInitRequest";
             AddAssetRequest(request);
             return request;
-        } 
+        }
 
         public static SceneAssetRequest LoadSceneAsync(string path, bool additive)
         {
@@ -124,9 +124,9 @@ namespace libx
             return LoadAsset(path, type, true);
         }
 
-        public static void Unload(AssetRequest asset)
+        public static void Unload(AssetRequest asset) 
         {
-            asset.Release();
+            asset.Release(); 
         }
         #endregion
 
@@ -172,10 +172,10 @@ namespace libx
         }
 
         private static void UpdateAssets()
-        { 
+        {
             for (int i = 0; i < _assetRequests.Count; ++i)
             {
-                var request = _assetRequests[i]; 
+                var request = _assetRequests[i];
                 if (request.Update() || !request.IsUnused())
                     continue;
                 _unusedAssets.Add(request);
@@ -187,7 +187,7 @@ namespace libx
             {
                 var request = _unusedAssets[i];
                 _assets.Remove(request.url);
-                request.Unload(); 
+                request.Unload();
             }
 
             _unusedAssets.Clear();
@@ -209,7 +209,7 @@ namespace libx
         {
             _assets.Add(request.url, request);
             _assetRequests.Add(request);
-            request.Load(); 
+            request.Load();
         }
 
         internal static AssetRequest LoadAsset(string path, Type type, bool async)
@@ -247,7 +247,7 @@ namespace libx
             request.url = path;
             request.assetType = type;
             AddAssetRequest(request);
-            request.Retain(); 
+            request.Retain();
             Log(string.Format("Load->{0}|{1}", path, assetBundleName));
             return request;
         }
@@ -417,7 +417,7 @@ namespace libx
             {
                 bundle.Retain();
                 return bundle;
-            } 
+            }
 
             if (url.StartsWith("http://", StringComparison.Ordinal) ||
                 url.StartsWith("https://", StringComparison.Ordinal) ||
@@ -494,7 +494,7 @@ namespace libx
                     if (item.loadState == LoadState.Loaded || item.loadState == LoadState.Unload)
                     {
                         _bundlesByLoading.RemoveAt(i);
-                        --i; 
+                        --i;
                     }
                 }
             }
@@ -559,6 +559,6 @@ namespace libx
 
             return bestFitIndex != -1 ? bundlesWithVariant[bestFitIndex] : assetBundleName;
         }
-        #endregion
+        #endregion 
     }
 }

@@ -191,9 +191,9 @@ namespace libx
         {
             get
             {
-                if (! string.IsNullOrEmpty(error))
+                if (!string.IsNullOrEmpty(error))
                 {
-                    return true; 
+                    return true;
                 }
                 return loadState == LoadState.Loaded;
             }
@@ -750,7 +750,7 @@ namespace libx
 
         internal override void Load()
         {
-            _request = cache ? UnityWebRequest.GetAssetBundle(url, hash, 0) : UnityWebRequest.GetAssetBundle(url);
+            _request = cache ? UnityWebRequestAssetBundle.GetAssetBundle(url, hash, 0) : UnityWebRequestAssetBundle.GetAssetBundle(url);
             _request.SendWebRequest();
             loadState = LoadState.LoadAssetBundle;
 
